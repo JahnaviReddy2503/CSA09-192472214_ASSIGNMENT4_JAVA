@@ -2,3 +2,4 @@ Task: 5
 Requirement: invalid currency amount
 Command: javac -d Task05\out Task05\src\*.java && java -cp Task05\out ConverterTest
 Date: 2026-11-07
+invalid_amount=Invalid amount PASS
