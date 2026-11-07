@@ -158,3 +158,28 @@ combo, without database latency. Caching is preferable for a small, mostly
 stable outpatient directory; periodic refresh or an explicit Refresh button is
 needed when doctor data changes frequently. If the database is authoritative
 for availability, fetch or verify the selected slot during booking as well.
+
+## Runnable implementation
+
+`src/AppointmentDesk.java` is the working Swing implementation. Run:
+
+```powershell
+javac -d Task02\out Task02\src\*.java
+java -cp Task02\out AppointmentDesk
+```
+
+Sample input:
+
+| Control | Value |
+|---|---|
+| Patient ID | `P1001` |
+| Patient name | `Asha Rao` |
+| Department | `Cardiology` |
+| Doctor | `Dr. Meera` |
+| Time slot | `09:00` |
+
+Click **Book appointment** to receive a confirmation dialog. Blank patient
+fields or an unavailable doctor produce an error dialog. Changing Department
+refreshes the Doctor combo box. The implementation uses `SwingWorker` for the
+booking operation and asks for confirmation if the window is closed while a
+booking worker is active.

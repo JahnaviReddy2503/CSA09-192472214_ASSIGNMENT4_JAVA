@@ -21,6 +21,7 @@ public final class FeeWindow extends JFrame {
     private final JTextField amountField = new JTextField();
     private final JLabel statusLabel = new JLabel("Enter payment details.");
     private final JButton payButton = new JButton("Pay Fee");
+    private final JButton clearButton = new JButton("Clear");
     private final JButton receiptButton = new JButton("Receipt");
     private PaymentResult lastPayment;
 
@@ -46,6 +47,7 @@ public final class FeeWindow extends JFrame {
 
         var buttons = new JPanel();
         buttons.add(payButton);
+        buttons.add(clearButton);
         buttons.add(receiptButton);
 
         add(fields, BorderLayout.CENTER);
@@ -55,6 +57,7 @@ public final class FeeWindow extends JFrame {
 
     private void attachListeners() {
         payButton.addActionListener(event -> startPayment());
+        clearButton.addActionListener(event -> clearForm());
         receiptButton.addActionListener(event -> showReceipt());
         addWindowListener(new WindowAdapter() {
             @Override
@@ -104,8 +107,17 @@ public final class FeeWindow extends JFrame {
                     "Receipt", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
+
         JOptionPane.showMessageDialog(this, lastPayment.receiptText(),
                 "Receipt", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void clearForm() {
+        studentNameField.setText("");
+        registerNumberField.setText("");
+        amountField.setText("");
+        lastPayment = null;
+        statusLabel.setText("Enter payment details.");
     }
 
     private void setPaymentControlsEnabled(boolean enabled) {

@@ -32,11 +32,15 @@ in-memory repository runs without MySQL.
 
 ## Task 2 - Hospital outpatient appointment desk
 
-Design-only task. No Java compilation is required.
+```powershell
+javac -d Task02\out Task02\src\*.java
+java -cp Task02\out AppointmentDesk
+```
 
-**Result:** Documented the event table, component hierarchy, pseudocode,
-window lifecycle, applet comparison, and database-fetch versus cached-map
-analysis in [Task02/notes.md](./Task02/notes.md).
+**Result:** Implemented a runnable appointment desk with patient fields,
+department-driven doctor selection, time slots, booking validation,
+confirmation/error dialogs, and close confirmation while booking is in progress.
+The design analysis remains in [Task02/notes.md](./Task02/notes.md).
 
 ## Task 3 - Campus library search screen
 

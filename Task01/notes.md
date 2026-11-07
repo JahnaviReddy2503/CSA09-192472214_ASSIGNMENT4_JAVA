@@ -41,7 +41,8 @@ validates the input and delegates persistence. The default `Main` uses
 `JdbcPaymentRepository` uses `PreparedStatement`, and its caller owns the
 connection lifecycle.
 
-The Pay and Receipt buttons each have their own listener. Payment runs in a
+The Pay, Clear, and Receipt buttons each have their own listener. Clear resets
+the input fields and any previous receipt. Payment runs in a
 `SwingWorker`, while `done()` updates Swing components on the EDT. A status
 label communicates progress and outcomes. A `WindowAdapter` disposes the
 window cleanly when the user closes it.
@@ -68,4 +69,3 @@ handler in `O(1)` expected time, at the cost of `O(k)` listener objects and
 references. The space difference is linear either way for `k` controls; the
 separate-listener design gives clearer responsibility and avoids fragile string
 dispatch.
-
