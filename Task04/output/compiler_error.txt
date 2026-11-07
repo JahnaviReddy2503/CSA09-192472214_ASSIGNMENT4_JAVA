@@ -1,0 +1,14 @@
+Task: 4
+Requirement: intentional mouseclicked @Override compiler error
+Command: javac -d Task04\out Task04\src\DrawPadTypo.java
+Date: 2026-11-07
+javac.exe : Task04\src\DrawPadTypo.java:7: error: method does not override or implement a method from a supertype
+At line:2 char:780
++ ... xt; $typo = & javac -d Task04\out Task04\src\DrawPadTypo.java 2>&1 |  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Task04\src\Draw...rom a supertype:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    @Override
+    ^
+1 error

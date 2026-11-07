@@ -1,0 +1,7 @@
+Task: 4
+Requirement: click state survives repaint/minimise model test
+Command: javac -d Task04\out Task04\src\*.java && java -cp Task04\out DrawPadTest
+Date: 2026-11-07
+before_minimise count=3 points=[java.awt.Point[x=10,y=20], java.awt.Point[x=30,y=40], java.awt.Point[x=50,y=60]]
+after_restore count=3 points=[java.awt.Point[x=10,y=20], java.awt.Point[x=30,y=40], java.awt.Point[x=50,y=60]]
+PASS: stored points are available for paint() after repaint.
