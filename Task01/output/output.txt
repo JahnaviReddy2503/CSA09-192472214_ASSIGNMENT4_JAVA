@@ -1,0 +1,8 @@
+Task: 1
+Requirement: FeeService valid and invalid payment cases
+Command: javac -d Task01\out Task01\src\*.java && java -cp Task01\out FeeServiceTest
+Date: 2026-11-07
+valid: PASS - Payment accepted for ST101: 1250.00
+empty registration: PASS - Registration number is required
+non-numeric: PASS - Invalid amount
+negative: PASS - Amount must be positive
