@@ -1,0 +1,8 @@
+Task: 6
+Requirement: mock service normal, invalid, duplicate cases
+Command: javac -d Task06\out Task06\src\*.java && java -cp Task06\out app.ServiceTest
+Date: 2026-11-07
+normal: PASS
+invalid: PASS - Name required
+duplicate: PASS - Duplicate registration
+MySQL: NOT EXECUTED – MySQL server and Connector/J are unavailable in this environment.
