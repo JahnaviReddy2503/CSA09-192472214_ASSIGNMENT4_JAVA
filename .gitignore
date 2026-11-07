@@ -1,0 +1,4 @@
+**/out/
+Task06/db.properties
+*.class
+.vscode/
