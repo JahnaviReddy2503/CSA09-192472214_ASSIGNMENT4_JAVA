@@ -1,0 +1,7 @@
+Task: 3
+Requirement: search and resize behavior
+Command: javac -d Task03\out Task03\src\*.java && java -cp Task03\out LibrarySearch --test
+Date: 2026-11-07
+500x400 north=500x30 center=500x334 south=500x36
+800x600 north=800x30 center=800x534 south=800x36
+1100x800 north=1100x30 center=1100x734 south=1100x36
