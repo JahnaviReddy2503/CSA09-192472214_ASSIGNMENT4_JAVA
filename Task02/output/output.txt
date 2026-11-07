@@ -1,0 +1,5 @@
+Task: 2
+Requirement: appointment event trace
+Command: javac -d Task02\out Task02\src\*.java && java -cp Task02\out AppointmentDesk --test
+Date: 2026-11-07
+constructor -> departmentChanged -> doctorListRefreshed -> bookingError
