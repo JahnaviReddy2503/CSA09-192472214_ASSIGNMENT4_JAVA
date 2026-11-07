@@ -18,7 +18,7 @@ Generate this automatically in Word after applying heading styles.
 1. Objective and original design issues.
 2. Deficiency table and user impact.
 3. Layered class structure diagram.
-4. Implementation screenshots.
+4. Implementation results.
 5. Design defence and listener-complexity comparison.
 6. Compile/run commands and result.
 
@@ -37,7 +37,7 @@ Generate this automatically in Word after applying heading styles.
 2. Layout-manager choices and justifications.
 3. Nested container diagram.
 4. UI implementation and dummy-data behavior.
-5. Screenshots at 800 x 500, 1200 x 700, and 600 x 400.
+5. Resize observations at 800 x 500, 1200 x 700, and 600 x 400.
 6. Resize observation table.
 7. GridBagLayout and absolute-positioning comparison.
 8. Compile/run commands and result.
@@ -48,13 +48,13 @@ Generate this automatically in Word after applying heading styles.
 2. Reproducible repaint failure interaction.
 3. Corrected implementation and persistent drawing explanation.
 4. Broken `@Override` compiler diagnostic.
-5. Screenshots before and after minimize/restore.
+5. Results before and after minimize/restore.
 6. BufferedImage versus point-list analysis.
 
 ## 5. Task 5 - Currency Converter Event-Handling Styles
 
 1. Objective.
-2. Converter A, B, C, and D implementation screenshots.
+2. Converter A, B, C, and D implementation results.
 3. Version-2 Enter-key and dialog behavior.
 4. Line-change table.
 5. Readability, access, reuse, and maintainability comparison.
@@ -68,7 +68,7 @@ Generate this automatically in Word after applying heading styles.
 3. Validation, duplicate checking, and threading design.
 4. Layered class diagram and pseudocode.
 5. Database schema and sample data.
-6. Implementation screenshots: normal, invalid, duplicate, filter, and export.
+6. Implementation results: normal, invalid, duplicate, filter, and export.
 7. Test-case table with observed results.
 8. Full-table versus paged-loading analysis.
 9. Compile/run commands and MySQL configuration notes.
@@ -84,4 +84,4 @@ Generate this automatically in Word after applying heading styles.
 - Complete source-code listing or GitHub link.
 - SQL schema.
 - Compile/run command reference.
-- Additional screenshots, if required.
+- Additional test evidence, if required.

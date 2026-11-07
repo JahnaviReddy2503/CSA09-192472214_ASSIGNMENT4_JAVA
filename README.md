@@ -16,7 +16,7 @@
 - Database and other long-running work is kept off the Event Dispatch Thread.
 - Task 6 uses `PreparedStatement`, try-with-resources, and a database unique
   constraint for duplicate protection.
-- Each task has separate `src`, `notes.md`, and `screenshots` content.
+- Each task has separate `src` and `notes.md` content.
 
 ## Task 1 - Fee Window redesign
 
@@ -111,8 +111,6 @@ Each task contains:
 ```text
 TaskXX/
 ├── src/                 Java source files (empty only for design-only Task 2)
-├── screenshots/
-│   └── README.md        Screenshot placeholder list
 └── notes.md             Written answers and test evidence
 ```
 
@@ -122,7 +120,6 @@ local `db.properties` template. Never commit real database credentials.
 ## Submission checklist
 
 - Replace `<fill>` with the student's name.
-- Add the requested screenshots to each task’s `screenshots` folder.
 - Fill the observed-result columns in Task 3 and Task 6 notes.
 - Add the final GitHub repository URL to the report cover page.
 - Use one commit per task as shown in the submission command sequence.

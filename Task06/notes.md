@@ -136,11 +136,11 @@ credentials. `db.properties` is intentionally not committed with credentials.
 
 ### Test-case table
 
-| ID | Type | Input | Expected result | Screenshot/evidence |
+| ID | Type | Input | Expected result | Observed result |
 |---|---|---|---|---|
-| T1 | Normal | Existing student data, valid email/phone, selected event | Registration succeeds, status confirms it, and the new row appears after refresh. | `<fill screenshot>` |
-| T2 | Invalid | Blank name or malformed email/phone | Registration is rejected before DB insert with a specific error dialog. | `<fill screenshot>` |
-| T3 | Duplicate | Register the same student for the same event twice | Second attempt is rejected by service check or unique constraint; only one row exists. | `<fill screenshot>` |
+| T1 | Normal | Existing student data, valid email/phone, selected event | Registration succeeds, status confirms it, and the new row appears after refresh. | `<fill observed result>` |
+| T2 | Invalid | Blank name or malformed email/phone | Registration is rejected before DB insert with a specific error dialog. | `<fill observed result>` |
+| T3 | Duplicate | Register the same student for the same event twice | Second attempt is rejected by service check or unique constraint; only one row exists. | `<fill observed result>` |
 
 ### Alternative: all rows versus paged rows
 

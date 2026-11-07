@@ -56,24 +56,17 @@ success for an available book and a checked-out message otherwise. The status
 label reports result count and actions. Swing creation is started through
 `SwingUtilities.invokeLater`.
 
-## 3.4 Resize screenshot plan
+## 3.4 Resize test plan
 
-Take exactly these three screenshots:
-
-1. **800 x 500 pixels** - normal working-size window with all controls and
-   several results visible.
-2. **1200 x 700 pixels** - enlarged window; the results area should visibly grow
-   while the search and button rows remain compact.
-3. **600 x 400 pixels** - reduced window; controls remain usable and the
-   results area stays scrollable rather than being manually positioned.
+Test the application at exactly 800 x 500, 1200 x 700, and 600 x 400 pixels.
 
 | Region | Expected behaviour | Observed |
 |---|---|---|
-| Title row | Remains at the top with stable preferred height. | `<fill from 800 x 500 screenshot>` |
-| Search row | Controls remain in one compact top row where space permits. | `<fill from screenshots>` |
-| Results area | Expands most when the window grows and scrolls when content does not fit. | `<fill from screenshots>` |
-| Button row | Prev, Next, and Reserve retain preferred button sizes at the bottom. | `<fill from screenshots>` |
-| Status label | Remains below the button row and displays the current result/action. | `<fill from screenshots>` |
+| Title row | Remains at the top with stable preferred height. | `<fill observed result>` |
+| Search row | Controls remain in one compact top row where space permits. | `<fill observed result>` |
+| Results area | Expands most when the window grows and scrolls when content does not fit. | `<fill observed result>` |
+| Button row | Prev, Next, and Reserve retain preferred button sizes at the bottom. | `<fill observed result>` |
+| Status label | Remains below the button row and displays the current result/action. | `<fill observed result>` |
 
 ## Alternative concept comparison
 
