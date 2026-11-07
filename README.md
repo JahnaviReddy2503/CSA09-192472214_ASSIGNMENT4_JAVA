@@ -114,7 +114,11 @@ Each task contains:
 
 ```text
 TaskXX/
-├── src/                 Java source files (empty only for design-only Task 2)
+├── src/                 Java source files
+├── input/               Sample input instructions
+├── output/              Execution-result recording instructions
+├── diagrams/            Diagram references
+├── README.md            Task-specific run instructions
 └── notes.md             Written answers and test evidence
 ```
 

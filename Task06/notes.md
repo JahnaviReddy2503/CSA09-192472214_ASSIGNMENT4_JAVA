@@ -155,3 +155,25 @@ work is proportional to one page, although deep offsets can become slower in
 some databases because the server still scans/skips earlier rows. For very
 large data, keyset pagination can improve deep-page performance. This
 assignment uses `LIMIT/OFFSET` because it is clear and directly required.
+
+## Practical execution record
+
+**Aim:** Register students for campus events and manage paged registrations.
+
+**Requirements:** Java 17+, MySQL, Connector/J, Swing, JDBC,
+`PreparedStatement`, `SwingWorker`, and CSV file I/O.
+
+| Test | Input/action | Expected result | Verification |
+|---|---|---|---|
+| Normal | ST101, Asha Rao, valid email/phone, event | Registration saved and table refreshed | Requires configured MySQL |
+| Empty field | Blank name | Validation error before insert | Service logic implemented |
+| Bad email | `asha.example.com` | Invalid email error | Service logic implemented |
+| Bad phone | Fewer than 7 digits | Phone validation error | Service logic implemented |
+| Duplicate | Same student/event twice | Service or unique-constraint rejection | Requires configured MySQL |
+| Filter | Choose an event in filter | Matching page loaded | Requires configured MySQL |
+| Export | File > Export | Visible table page written as CSV | Code path implemented |
+
+The Java sources compile successfully without Connector/J because compilation
+uses only standard JDBC interfaces. End-to-end database execution must be
+performed after installing MySQL and supplying local Connector/J and
+`db.properties` values; no credentials are stored in this repository.

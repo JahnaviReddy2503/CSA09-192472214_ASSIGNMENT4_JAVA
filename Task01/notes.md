@@ -69,3 +69,22 @@ handler in `O(1)` expected time, at the cost of `O(k)` listener objects and
 references. The space difference is linear either way for `k` controls; the
 separate-listener design gives clearer responsibility and avoids fragile string
 dispatch.
+
+## Practical execution record
+
+**Aim:** Collect fee details, validate them, process a payment without freezing
+the UI, and display a receipt.
+
+**Requirements:** Java 17+, Swing, `SwingWorker`, `PreparedStatement` for the
+optional JDBC adapter, and try-with-resources.
+
+**Algorithm:** Read fields; validate name, register number, and positive
+amount; run the repository operation in a worker; update status; display the
+receipt when requested.
+
+| Test | Input/action | Expected result | Verification |
+|---|---|---|---|
+| Valid | Asha Rao / CSE01 / 1250, Pay Fee | Success status and receipt | Service smoke test passed |
+| Invalid amount | `bad` | Valid-number message | Service smoke test passed |
+| Negative amount | `-1` | Greater-than-zero message | Service smoke test passed |
+| Clear | Click Clear after entering values | Fields and prior receipt reset | GUI manual test |

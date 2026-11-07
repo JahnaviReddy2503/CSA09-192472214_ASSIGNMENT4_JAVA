@@ -183,3 +183,17 @@ fields or an unavailable doctor produce an error dialog. Changing Department
 refreshes the Doctor combo box. The implementation uses `SwingWorker` for the
 booking operation and asks for confirmation if the window is closed while a
 booking worker is active.
+
+## Practical execution record
+
+**Aim:** Book a hospital appointment from validated patient and schedule data.
+
+**Requirements:** Java 17+, Swing, `JComboBox`, `SwingWorker`, and
+`WindowAdapter`.
+
+| Test | Input/action | Expected result | Verification |
+|---|---|---|---|
+| Valid | P1001, Asha Rao, Cardiology, Dr. Meera, 09:00 | Confirmation dialog | Service smoke test passed |
+| Empty name | Blank patient name, then Book | Error dialog | Service smoke test passed |
+| Department change | Select Neurology | Doctor list changes to Priya/Kiran | GUI manual test |
+| Close during worker | Click close while booking is active | Confirmation prompt | Code path implemented |

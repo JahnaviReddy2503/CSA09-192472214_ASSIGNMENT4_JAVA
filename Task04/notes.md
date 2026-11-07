@@ -98,3 +98,17 @@ graphics system), while the application does not iterate through all points.
 The image approach uses `O(w*h)` pixel memory and preserves pixels directly,
 but resizing requires a new image or scaling and changing an old point is
 harder. The point-list approach is more editable and resolution-independent.
+
+## Practical execution record
+
+**Aim:** Detect, count, store, and repaint mouse clicks.
+
+**Requirements:** Java 17+, AWT `Frame`, `MouseAdapter`, `ArrayList<Point>`,
+`paint(Graphics)`, and `WindowAdapter`.
+
+| Test | Input/action | Expected result | Verification |
+|---|---|---|---|
+| Click | Click drawing area three times | `Clicks: 3` and three dots | Source compiled |
+| Repaint | Minimize and restore | Dots remain visible | Code redraws stored points |
+| Close | Close window | Frame disposes | Source compiled |
+| Broken method | Compile DrawPadBroken | Override diagnostic | Diagnostic verified |

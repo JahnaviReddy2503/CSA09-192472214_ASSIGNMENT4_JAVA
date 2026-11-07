@@ -77,3 +77,17 @@ new trigger is one registration in either approach; the shared `Action` also
 keeps enabled state, label, and accelerator behavior consistent. The work to
 add a trigger is therefore lower and less error-prone with the shared `Action`,
 especially as the application grows.
+
+## Practical execution record
+
+**Aim:** Convert an amount using four event-handling styles.
+
+**Requirements:** Java 17+, Swing, `ActionListener`, inner classes, anonymous
+classes, lambdas, and `JOptionPane`.
+
+| Test | Input/action | Expected result | Verification |
+|---|---|---|---|
+| Valid conversion | 100 USD to EUR | `Result: 108.70 EUR` | Conversion smoke test passed |
+| Invalid input | `bad` | `Invalid amount` | Conversion smoke test passed |
+| Enter key | Type amount and press Enter | Version 2 shows dialog | Source implements listener |
+| Window close | Close any converter | Frame disposes | Source compiled |

@@ -99,3 +99,18 @@ localization, or window resizing. Components can overlap or become clipped.
 Nested `BorderLayout`/`FlowLayout` panels compute preferred sizes and adapt
 automatically, so they are more reliable for this resizable screen even if
 they create a few additional `JPanel` objects.
+
+## Practical execution record
+
+**Aim:** Search a dummy campus library catalogue and reserve an available book.
+
+**Requirements:** Java 17+, Swing, nested layout managers, `JTextArea`,
+`JScrollPane`, and event listeners.
+
+| Test | Input/action | Expected result | Verification |
+|---|---|---|---|
+| Search | `Java`, Computer Science, Search | Matching books are displayed | Source compiled |
+| Empty search | Empty text, All, Search | All dummy books displayed | Source logic reviewed |
+| Navigation | Click Next/Prev | Current result marker changes | Source logic reviewed |
+| Reserve | Select available book, Reserve | Reserved status message | Source logic reviewed |
+| Resize | 800x500, 1200x700, 600x400 | Center results area takes remaining space | Layout design verified |
