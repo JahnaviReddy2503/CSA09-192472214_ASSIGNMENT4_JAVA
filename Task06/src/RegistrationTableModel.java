@@ -5,7 +5,7 @@ import java.util.List;
 public final class RegistrationTableModel extends AbstractTableModel {
     private static final long serialVersionUID = 1L;
     private static final String[] COLUMNS =
-            {"ID", "Student ID", "Name", "Email", "Phone", "Event", "Registered At"};
+            {"ID", "Student ID", "Name", "Email", "Phone", "Department", "Event", "Registered At"};
     private List<RegistrationRow> rows = new ArrayList<>();
 
     public void setRows(List<RegistrationRow> rows) {
@@ -34,8 +34,9 @@ public final class RegistrationTableModel extends AbstractTableModel {
             case 2 -> row.studentName();
             case 3 -> row.email();
             case 4 -> row.phone();
-            case 5 -> row.eventName();
-            case 6 -> row.registeredAt();
+            case 5 -> row.department();
+            case 6 -> row.eventName();
+            case 7 -> row.registeredAt();
             default -> "";
         };
     }

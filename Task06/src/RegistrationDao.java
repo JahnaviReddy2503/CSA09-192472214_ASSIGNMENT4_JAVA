@@ -13,14 +13,16 @@ public final class RegistrationDao {
     }
 
     public List<EventOption> findEvents() throws SQLException {
-        String sql = "SELECT event_id, event_name FROM events ORDER BY event_date, event_name";
+        String sql = "SELECT event_id, event_name, event_date, venue FROM events ORDER BY event_date, event_name";
         List<EventOption> events = new ArrayList<>();
         try (Connection connection = dbConnection.open();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet results = statement.executeQuery()) {
             while (results.next()) {
                 events.add(new EventOption(results.getInt("event_id"),
-                        results.getString("event_name")));
+                        results.getString("event_name"),
+                        results.getString("event_date"),
+                        results.getString("venue")));
             }
         }
         return events;
@@ -38,11 +40,12 @@ public final class RegistrationDao {
         }
     }
 
-    public void register(String studentId, String name, String email, String phone, int eventId)
+    public void register(String studentId, String name, String email, String phone,
+                         String department, int eventId)
             throws SQLException {
         String studentSql = """
-                INSERT INTO students (student_id, name, email, phone) VALUES (?, ?, ?, ?)
-                ON DUPLICATE KEY UPDATE name = ?, email = ?, phone = ?
+                INSERT INTO students (student_id, name, email, phone, department) VALUES (?, ?, ?, ?, ?)
+                ON DUPLICATE KEY UPDATE name = ?, email = ?, phone = ?, department = ?
                 """;
         String registrationSql =
                 "INSERT INTO registrations (student_id, event_id) VALUES (?, ?)";
@@ -54,9 +57,11 @@ public final class RegistrationDao {
                 student.setString(2, name);
                 student.setString(3, email);
                 student.setString(4, phone);
-                student.setString(5, name);
-                student.setString(6, email);
-                student.setString(7, phone);
+                student.setString(5, department);
+                student.setString(6, name);
+                student.setString(7, email);
+                student.setString(8, phone);
+                student.setString(9, department);
                 student.executeUpdate();
                 registration.setString(1, studentId);
                 registration.setInt(2, eventId);
@@ -74,7 +79,7 @@ public final class RegistrationDao {
         String filter = eventId == null ? "" : " WHERE r.event_id = ?";
         String sql = """
                 SELECT r.registration_id, s.student_id, s.name, s.email, s.phone,
-                       e.event_name, r.registered_at
+                       s.department, e.event_name, r.registered_at
                 FROM registrations r
                 JOIN students s ON s.student_id = r.student_id
                 JOIN events e ON e.event_id = r.event_id
@@ -99,6 +104,7 @@ public final class RegistrationDao {
                             results.getString("name"),
                             results.getString("email"),
                             results.getString("phone"),
+                            results.getString("department"),
                             results.getString("event_name"),
                             results.getString("registered_at")));
                 }

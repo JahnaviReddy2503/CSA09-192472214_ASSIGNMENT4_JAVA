@@ -36,6 +36,7 @@ public final class RegistrationFrame extends JFrame {
     private final JTextField nameField = new JTextField();
     private final JTextField emailField = new JTextField();
     private final JTextField phoneField = new JTextField();
+    private final JTextField departmentField = new JTextField();
     private final JComboBox<EventOption> eventBox = new JComboBox<>();
     private final JComboBox<EventFilter> filterBox = new JComboBox<>();
     private final RegistrationTableModel tableModel = new RegistrationTableModel();
@@ -67,11 +68,12 @@ public final class RegistrationFrame extends JFrame {
     }
 
     private JPanel createFormPanel() {
-        JPanel panel = new JPanel(new GridLayout(3, 4, 6, 6));
+        JPanel panel = new JPanel(new GridLayout(4, 4, 6, 6));
         panel.add(new JLabel("Student ID")); panel.add(studentIdField);
         panel.add(new JLabel("Name")); panel.add(nameField);
         panel.add(new JLabel("Email")); panel.add(emailField);
         panel.add(new JLabel("Phone")); panel.add(phoneField);
+        panel.add(new JLabel("Department")); panel.add(departmentField);
         panel.add(new JLabel("Event")); panel.add(eventBox);
         JButton registerButton = new JButton("Register");
         registerButton.addActionListener(event -> register());
@@ -125,7 +127,8 @@ public final class RegistrationFrame extends JFrame {
         new SwingWorker<Void, Void>() {
             @Override protected Void doInBackground() throws Exception {
                 service.register(studentIdField.getText(), nameField.getText(),
-                        emailField.getText(), phoneField.getText(), selected.id());
+                        emailField.getText(), phoneField.getText(),
+                        departmentField.getText(), selected.id());
                 return null;
             }
             @Override protected void done() {
@@ -220,6 +223,7 @@ public final class RegistrationFrame extends JFrame {
     private void clearForm() {
         studentIdField.setText(""); nameField.setText("");
         emailField.setText(""); phoneField.setText("");
+        departmentField.setText("");
     }
 
     private void setBusy(boolean busy) {

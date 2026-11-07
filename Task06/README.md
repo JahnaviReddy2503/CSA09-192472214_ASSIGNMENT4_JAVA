@@ -21,7 +21,7 @@ java -cp "Task06\out;<path-to-mysql-connector-j.jar>" Main
 ## Sample execution
 
 Use student ID `ST101`, name `Asha Rao`, email `asha@example.com`, phone
-`9876543210`, and select an event. Click **Register**. The table reloads with
+`9876543210`, department `Computer Science`, and select an event. Click **Register**. The table reloads with
 the registration. Repeating the same student/event is rejected. Invalid email
 or phone is rejected before the insert. File > Export writes the visible page
 as CSV.

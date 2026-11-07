@@ -17,17 +17,22 @@ public class ConverterC extends JFrame {
         panel.add(fromBox); panel.add(new JLabel("to")); panel.add(toBox);
         panel.add(button); panel.add(resultLabel);
         add(panel); setSize(600, 100); setLocationRelativeTo(null);
-        button.addActionListener(new ActionListener() {
+        ActionListener handler = new ActionListener() {
             @Override public void actionPerformed(ActionEvent event) {
                 convert();
             }
-        });
+        };
+        button.addActionListener(handler);
+        amountField.addActionListener(handler);
         addWindowListener(new WindowAdapter() { public void windowClosing(WindowEvent e) { dispose(); } });
     }
 
     private void convert() {
-        resultLabel.setText(ConversionSupport.convert(amountField.getText(),
-                (String) fromBox.getSelectedItem(), (String) toBox.getSelectedItem()));
+        String result = ConversionSupport.convert(amountField.getText(),
+                (String) fromBox.getSelectedItem(), (String) toBox.getSelectedItem());
+        resultLabel.setText(result);
+        JOptionPane.showMessageDialog(this, result, "Conversion result",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {

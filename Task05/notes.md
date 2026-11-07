@@ -3,7 +3,9 @@
 ## 5.1 Four converter versions
 
 All versions contain an amount field, From and To currency combo boxes, a
-Convert button, a result label, and a `WindowAdapter` for closing.
+Convert button, a result label, and a `WindowAdapter` for closing. Each version
+registers its conversion handler on both the button and amount field, and
+displays the result in a dialog as well as the label.
 
 | Version | Handler style |
 |---|---|
@@ -18,8 +20,8 @@ places, and displays `Invalid amount` for `NumberFormatException`.
 ## 5.2 Version 2 changes
 
 Version 2 files are `ConverterA2`, `ConverterB2`, `ConverterC2`, and
-`ConverterD2`. Pressing Enter in the amount field performs conversion, and the
-converted result or invalid-input message appears in a `JOptionPane`.
+`ConverterD2`. They retain the same Enter-key and dialog behavior as the
+complete versions while providing a separate compact comparison implementation.
 
 Line counts below compare each compact version-2 source with its version-1
 counterpart. They are approximate source-line changes grouped by action; blank

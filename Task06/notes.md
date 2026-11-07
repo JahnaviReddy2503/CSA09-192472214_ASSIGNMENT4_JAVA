@@ -11,7 +11,7 @@
 
 ### Data
 
-- Student: student ID, name, email, phone.
+- Student: student ID, name, email, phone, department.
 - Event: event ID, event name, event date, venue.
 - Registration: registration ID, student ID, event ID, registration time.
 

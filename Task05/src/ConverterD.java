@@ -28,9 +28,14 @@ public class ConverterD extends JFrame {
             double amount = Double.parseDouble(amountField.getText().trim());
             double converted = amount * ConversionSupport.rate((String) fromBox.getSelectedItem())
                     / ConversionSupport.rate((String) toBox.getSelectedItem());
-            resultLabel.setText(String.format("Result: %.2f %s", converted, toBox.getSelectedItem()));
+            String result = String.format("Result: %.2f %s", converted, toBox.getSelectedItem());
+            resultLabel.setText(result);
+            JOptionPane.showMessageDialog(this, result, "Conversion result",
+                    JOptionPane.INFORMATION_MESSAGE);
         } catch (NumberFormatException exception) {
             resultLabel.setText("Invalid amount");
+            JOptionPane.showMessageDialog(this, "Invalid amount", "Conversion error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 

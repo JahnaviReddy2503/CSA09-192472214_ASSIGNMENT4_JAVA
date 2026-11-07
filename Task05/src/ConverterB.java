@@ -17,14 +17,19 @@ public class ConverterB extends JFrame {
         panel.add(fromBox); panel.add(new JLabel("to")); panel.add(toBox);
         panel.add(button); panel.add(resultLabel);
         add(panel); setSize(600, 100); setLocationRelativeTo(null);
-        button.addActionListener(new ConvertHandler());
+        ActionListener handler = new ConvertHandler();
+        button.addActionListener(handler);
+        amountField.addActionListener(handler);
         addWindowListener(new WindowAdapter() { public void windowClosing(WindowEvent e) { dispose(); } });
     }
 
     private class ConvertHandler implements ActionListener {
         @Override public void actionPerformed(ActionEvent event) {
-            resultLabel.setText(ConversionSupport.convert(amountField.getText(),
-                    (String) fromBox.getSelectedItem(), (String) toBox.getSelectedItem()));
+            String result = ConversionSupport.convert(amountField.getText(),
+                    (String) fromBox.getSelectedItem(), (String) toBox.getSelectedItem());
+            resultLabel.setText(result);
+            JOptionPane.showMessageDialog(ConverterB.this, result, "Conversion result",
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

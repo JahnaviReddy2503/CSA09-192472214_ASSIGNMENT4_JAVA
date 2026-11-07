@@ -14,6 +14,7 @@ public class ConverterA extends JFrame implements ActionListener {
         super("Converter A - Implements ActionListener");
         buildUi();
         convertButton.addActionListener(this);
+        amountField.addActionListener(this);
         addWindowListener(new WindowAdapter() { public void windowClosing(WindowEvent e) { dispose(); } });
     }
 
@@ -26,8 +27,11 @@ public class ConverterA extends JFrame implements ActionListener {
     }
 
     @Override public void actionPerformed(ActionEvent event) {
-        resultLabel.setText(ConversionSupport.convert(amountField.getText(),
-                (String) fromBox.getSelectedItem(), (String) toBox.getSelectedItem()));
+        String result = ConversionSupport.convert(amountField.getText(),
+                (String) fromBox.getSelectedItem(), (String) toBox.getSelectedItem());
+        resultLabel.setText(result);
+        JOptionPane.showMessageDialog(this, result, "Conversion result",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void main(String[] args) {

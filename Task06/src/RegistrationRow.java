@@ -4,6 +4,7 @@ public record RegistrationRow(
         String studentName,
         String email,
         String phone,
+        String department,
         String eventName,
         String registeredAt) {
 }

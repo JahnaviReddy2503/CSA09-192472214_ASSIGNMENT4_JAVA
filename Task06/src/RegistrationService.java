@@ -8,12 +8,14 @@ public final class RegistrationService {
         this.registrationDao = registrationDao;
     }
 
-    public void register(String studentId, String name, String email, String phone, int eventId)
+    public void register(String studentId, String name, String email, String phone,
+                         String department, int eventId)
             throws SQLException {
         String cleanStudentId = required(studentId, "Student ID");
         String cleanName = required(name, "Name");
         String cleanEmail = required(email, "Email");
         String cleanPhone = required(phone, "Phone");
+        String cleanDepartment = required(department, "Department");
         if (!cleanEmail.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) {
             throw new IllegalArgumentException("Enter a valid email.");
         }
@@ -24,7 +26,8 @@ public final class RegistrationService {
         if (registrationDao.registrationExists(cleanStudentId, eventId)) {
             throw new IllegalArgumentException("This student is already registered for the event.");
         }
-        registrationDao.register(cleanStudentId, cleanName, cleanEmail, cleanPhone, eventId);
+        registrationDao.register(cleanStudentId, cleanName, cleanEmail, cleanPhone,
+                cleanDepartment, eventId);
     }
 
     public List<EventOption> findEvents() throws SQLException {
